@@ -29,18 +29,17 @@ def Binary() :
     while True :
         try :
             usr_input = int(input("Enter your number: "))
-            number = usr_input
+            number = str(usr_input)
             modules = []
             while usr_input > 0 :
                 modulation = usr_input % 2
                 modules.append(str(modulation))
                 usr_input //= 2
             BinaryNumber = ""
-            listLength = len(modules)
-            for i in range(listLength - 1, 0, -1) :
-                BinaryNumber += "" + modules[i]
-            return str(number) + " = " + BinaryNumber
-        except :
+            for i in reversed(modules) :
+                BinaryNumber += "" + i
+            return number + " = " + BinaryNumber
+        except ValueError:
             pass
 
 def HexaDecimal() :
@@ -52,7 +51,7 @@ def HexaDecimal() :
     while True :
         try :
             usr_input = int(input("Enter your number: "))
-            number = usr_input
+            number = str(usr_input)
             modules = []
             while usr_input > 0 :
                 modulation = usr_input % 16
@@ -62,7 +61,7 @@ def HexaDecimal() :
             listLength = len(modules) - 1
             for i in reversed(modules) :
                 HexaDecimal += HexaDecimalList[i]
-            return str(number) + " = " + HexaDecimal
+            return number + " = " + HexaDecimal
         except ValueError:
             pass
 
